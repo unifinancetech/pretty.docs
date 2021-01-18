@@ -1,0 +1,16 @@
+# See https://squidfunk.github.io/mkdocs-material/getting-started/#configuration
+site_name: unifinancetech
+site_description: Documentation for unifinancetech
+
+theme:
+  name: material
+  language: en
+  logo: images/logo.png
+  favicon: images/favicon.ico
+
+google_analytics:
+  - UA-172357450-1
+  - auto
+
+extra_css:
+  - stylesheets/colors.css

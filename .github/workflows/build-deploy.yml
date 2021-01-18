@@ -1,0 +1,42 @@
+name: Build & Deploy
+
+on:
+  push:
+    branches: [ master]
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.8
+    - uses: dschep/install-poetry-action@v1.3
+    - run: poetry install
+    - run: poetry run mkdocs build
+    - name: Upload generated files
+      uses: actions/upload-artifact@v2
+      with:
+        name: generated-docs
+        path: site
+
+  deploy:
+    needs: build
+    if: github.event_name == 'push' && (github.ref == 'refs/heads/master' || github.ref == 'refs/heads/dev')
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Download artifacts from build job
+      uses: actions/download-artifact@v2
+      with:
+        name: generated-docs
+        path: site
+    - name: Deploy to GH Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./site
+        cname: docs.unifinancetech.finance
