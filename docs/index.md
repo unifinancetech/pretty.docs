@@ -1,7 +1,7 @@
 # Introduction
-> the most efficient farmer on [*flamingo*](https://flamingo.finance)
+> the most efficient farmer on [*flamingo*](https://unififnance.tech)
 
-[*unifinancetech*](https://unifinancetech.github.io) farms on [*flamingo*](https://flamingo.finance) and earn profits.
+[*unifinancetech*](https://github.com/unifinancetech) farms on [*flamingo*](https://unififnance.tech) and earn profits.
 
 ```
 users -------+                        +-> flamingo wrapper
@@ -15,7 +15,7 @@ Users deposit (or withdraw) tokens to (or from) unifinancetech vaults, where the
 
 This optimized allocation of tokens will be done through an strategist, a party that's heavily restricted in what it can do, as it can only take actions from a whitelisted set that is directly encoded in the contract, which will initially be a chosen operator that will be transitioned into a smart contract.
 
-The strategist will then use the tokens present in the vaults to farm the several [*flamingo*](https://flamingo.finance) protocols (as well as others) in an optimal way.
+The strategist will then use the tokens present in the vaults to farm the several [*flamingo*](https://unififnance.tech) protocols (as well as others) in an optimal way.
 
 See [Strategies](/strategies) for a list of all whitelisted actions available to the strategist.
 
